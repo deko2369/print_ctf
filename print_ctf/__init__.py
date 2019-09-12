@@ -41,16 +41,23 @@ def __get_cals(ical_url, now, interval=timedelta(weeks=2), tz=pytz.utc):
                   key=lambda x:x.start)
 
 
-def print_ctf(interval=timedelta(weeks=2), tz=pytz.utc):
+def ctf_info(interval=timedelta(weeks=2), tz=pytz.utc):
     date_format = '%Y/%m/%d(%a) %H:%M:%S'
 
     now = datetime.now(tz)
 
+    result = []
     for c in __get_cals(__CTFTIME_ICAL_URL, now, interval, tz):
-        print(c.summary)
-        print(c.start.strftime(date_format), 'TO', \
-              c.end.strftime(date_format))
-        print(c.desc)
+        result.append(c.summary)
+        result.append('%s TO %s' % \
+            (c.start.strftime(date_format), c.end.strftime(date_format)))
+        result.append(c.desc)
+
+    return '\n'.join(result)
+
+
+def print_ctf(interval=timedelta(weeks=2), tz=pytz.utc):
+    print(ctf_info(interval, tz))
 
 
 def __main():

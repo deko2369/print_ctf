@@ -16,6 +16,7 @@ $ print_ctf --weeks=4
 History
 -------
 
+* 1.0.4: Added ctf_info method
 * 1.0.3: Python 3 supported
 * 1.0.2: Fixed module directory
 * 1.0.1: Fixed installing script
