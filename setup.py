@@ -6,7 +6,7 @@ with open('README.md', 'r') as f:
     long_description = f.read().replace('\\_', '_')
 
 setup(name='print_ctf',
-      version='1.0.2',
+      version='1.0.3',
       description='Print recent CTF contests sourced by CTFTime.org',
       long_description=long_description,
       author='deko2369',
